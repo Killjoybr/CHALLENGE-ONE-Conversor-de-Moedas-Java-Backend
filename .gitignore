@@ -1,2 +1,5 @@
 # ignore java libraries
 /lib
+
+# ignore build output
+/out
