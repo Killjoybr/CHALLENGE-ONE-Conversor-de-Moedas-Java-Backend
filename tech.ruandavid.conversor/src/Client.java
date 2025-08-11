@@ -1,5 +1,3 @@
-import com.sun.net.httpserver.Request;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -33,11 +31,4 @@ public class Client {
                 .join();
     }
 
-    public static void main(String[] args) {
-        Client client = new Client("https://viacep.com.br/ws/01001000/json/");
-
-        String output = client.sendRequest();
-
-        System.out.println(output);
-    }
 }
