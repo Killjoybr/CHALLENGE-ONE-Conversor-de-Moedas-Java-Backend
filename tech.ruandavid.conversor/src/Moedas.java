@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Moedas {
@@ -12,6 +11,8 @@ public class Moedas {
 
         String moedasSuportadas = API.sendRequest();
 
-        System.out.println(moedasSuportadas);
+        Persistor pr = new Persistor();
+
+        pr.escreverArquivo(moedasSuportadas, "./moedas.json");
     }
 }
