@@ -1,18 +1,12 @@
-import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Moedas {
-    private List<String> possibilidades;
+    @SerializedName("supported_codes")
+    private List<List<String>> moedasSuportadas;
 
-
-    public static void main(String[] args) {
-        Gson gson = new Gson();
-        Client API = new Client("https://v6.exchangerate-api.com/v6/" + System.getenv("API_KEY")  + "/codes");
-
-        String moedasSuportadas = API.sendRequest();
-
-        Persistor pr = new Persistor();
-
-        pr.escreverArquivo(moedasSuportadas, "./moedas.json");
+    public List<List<String>> getMoedasSuportadas() {
+        return moedasSuportadas;
     }
 }
