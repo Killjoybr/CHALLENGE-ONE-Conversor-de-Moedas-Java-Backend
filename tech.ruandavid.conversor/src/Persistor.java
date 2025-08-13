@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+
 import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,4 +22,13 @@ public class Persistor {
         }
     }
 
+    public static void main(String[] args) {
+        Client API = new Client("https://v6.exchangerate-api.com/v6/" + System.getenv("API_KEY")  + "/codes");
+
+        String moedasSuportadas = API.sendRequest();
+
+        Persistor pr = new Persistor();
+
+        pr.escreverArquivo(moedasSuportadas, "./moedas.json");
+    }
 }
